@@ -1,0 +1,22 @@
+title Web Sequence Diagram - Exercise 0.5
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+
+note over browser:
+browser executes the js-code that 
+requests json data from server
+end note 
+
+browser-->server: HTTP GET  https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: {"content":"","date":"2021-03-05T18:56:14.209Z"}, ...]
+
+note over browser:
+data from json is fetched then the
+event handler is executed which renders
+the notes to the page via the DOM-API
+end note 
