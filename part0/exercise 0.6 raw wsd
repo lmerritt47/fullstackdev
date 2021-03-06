@@ -1,9 +1,10 @@
 title WSD: Exercise 0.6
 
 note over browser:
-solid lines: represent web form requests
-dashed lines: represent descriptions of 
-form requests and server reactions
+Solid lines: represent web form requests.
+
+Dashed lines: represent descriptions of 
+form requests and server reactions.
 end note
 
 browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
@@ -13,7 +14,7 @@ browser-->server: content-type: JSON-data
 browser-->server:  JSON-data string {content: ...}
 
 note over browser:
-event handler is executed by the spa.js 
+The event handler is executed by the spa.js 
 file which renders the notes to the page 
 via a push file: notes.push(note) and stops
 a new GET request from happening with the 
@@ -21,10 +22,10 @@ method e.preventDefault()
 end note 
 
 note over server: 
-no additional requests are sent back 
-besides the new note submitted in the form 
-due to the event handler js actions that limit
-the default handling of form submit
+No additional requests are made back to 
+the browser but the new note is submitted
+in the form due to the status code 201 creating
+a new resource without redirecting the page.
 end note 
 
 server-->browser: status code: 201 created, no redirect
@@ -32,6 +33,6 @@ server-->browser: status code: 201 created, no redirect
 server-->browser: {"message":"note created"}
 
 note over browser:
-Page instantly loads the new
-content from the JSON/application
+Page instantly loads the new content.
 end note
+
